@@ -8,7 +8,7 @@
     "build": "set NODE_OPTIONS=--openssl-legacy-provider && ng build",
     "build:prod": "set NODE_OPTIONS=--openssl-legacy-provider && ng build --prod --base-href http://www-sop.inria.fr/members/Gregory.Hoareau/WebSurfeur/",
     "build:gh-pages": "set NODE_OPTIONS=--openssl-legacy-provider && ng build --prod --base-href /WebSurfeur/",
-    "deploy": "npm run build:gh-pages && npx angular-cli-ghpages --dir=dist/chevre-choux",
+    "deploy": "npm run build:gh-pages && copy dist\\chevre-choux\\index.html dist\\chevre-choux\\404.html && cd dist/chevre-choux && git init && git add . && git commit -m \"Deploy to GitHub Pages\" && git push --force https://github.com/Terra-Numerica/WebSurfeur.git master:gh-pages",
     "start:electron": "set NODE_OPTIONS=--openssl-legacy-provider && ng build --base-href ./ && electron .",
     "build:electron": "set NODE_OPTIONS=--openssl-legacy-provider && ng build --base-href ./ && electron-builder"
   },
